@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- swiper css linked hare  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- akar icon cdn linked hare  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/akar-icons-fonts/1.1.22/css/akar-icons.css"
+      integrity="sha512-xM54SoWdWHNrNSYzPt1Wfsg5dyaIk0e7/biNh0jIR+pdaoWLfEAs50ig7ysS0ywbN79lrAow53uHtK3joebijA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>3media Smantig</title>
+  <meta name="title" content="3media">`
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/hero-bg.jpg">
+  <link rel="preload" as="image" href="./assets/images/hero-slide-1.jpg">
+  <link rel="preload" as="image" href="./assets/images/hero-slide-2.jpg">
+  <link rel="preload" as="image" href="./assets/images/hero-slide-3.jpg">
+  <style>
+    .hero-text {
+      text-align: justify;
+    }
+    .card-text {
+      text-align: justify;
+    }
+    .table-container {
+  max-width: 1310px;
+  margin: auto;
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #2C67EC;
+  color: #fff;
+}
+
+thead th {
+  padding: 15px;
+  text-align: center;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+tbody td {
+  padding: 10px;
+  text-align: center;
+}
+
+.section-header td {
+  background-color: #2C67EC;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.highlight {
+  background-color: #2C67EC;
+  color: #fff;
+}
+
+/*-----------------------------------*\
+  #PROJECT
+\*-----------------------------------*/
+
+.project { background-color: var(--cultured); }
+
+.project :is(.section-subtitle, .section-title) { text-align: center; }
+
+.project .section-title { margin-block-end: 50px; }
+
+.project-card {
+  background-color: var(--white);
+  border-radius: var(--radius-8);
+  overflow: hidden;
+  box-shadow: var(--shadow-2);
+  height: 100%;
+}
+
+.project-card .card-content { padding: 30px; }
+
+.project-card .card-title { transition: var(--transition-1); }
+
+.project-card .card-title:is(:hover, :focus-visible) { color: var(--violet-blue-crayola); }
+
+.project-card .card-text { margin-block: 16px 20px; }
+
+.project-card .card-meta-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.project-card .card-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--cadet-blue-crayola);
+  font-size: var(--fs-8);
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- 
+    - #HEADER
+  -->
+  <header class="header" data-header>
+    <div class="container" >
+
+      <a href="#" class="logo">
+        <img src="./assets/images/Logo Smantig Infromation Center.png" width="74" height="24" alt="3media Beranda" class="logo-light">
+
+        <img src="./assets/images/Logo Smantig Infromation Center.png" width="74" height="24" alt="3media Beranda" class="logo-dark">
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="./assets/images/Logo Smantig Infromation Center.png" class="logo">
+            <img src="./assets/images/Logo Smantig Infromation Center.png" width="74" height="24" alt="3media Smantig">
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="index.html" class="navbar-link">BERANDA</a>
+          </li>
+
+          <li>
+            <a href="Tentang Kami.html" class="navbar-link">TENTANG KAMI</a>
+          </li>
+
+          <li>
+            <a href="Berita.html" class="navbar-link">BERITA SMANTIG</a>
+          </li>
+
+          <li>
+            <a href="Dokumentasi.html" class="navbar-link">DOKUMENTASI</a>
+          </li>
+
+          <li>
+            <a href="Tampilan Admin.html" class="navbar-link">ADMIN 3MEDIA</a>
+          </li>
+
+        </ul>
+
+        <div class="wrapper">
+          <a href="mailto:smantig.3media@gmail.com" class="contact-link">3mediapicture@gmail.com</a>
+
+          <a href="tel:001234567890" class="contact-link">+62 812 434 863 42</a>
+        </div>
+
+        
+
+      </nav>
+
+      <a href="https://www.youtube.com/@smantig.3media" class="btn btn-primary">SUBSCRIBE</a>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero has-bg-image" aria-label="Beranda"
+        style="background-image: url(./assets/images/Latar-belakang-3media-3.jpg)">
+        <div class="container" >
+
+          <div class="hero-content">
+
+            <h1 class="h1 hero-title">Selamat Datang</h1>
+
+            <p class="hero-text">
+              Selamat datang di halaman Tentang Kami 3Media SMANTIG. Kami adalah tim media sekolah yang berkomitmen untuk mendokumentasikan setiap momen penting dengan sentuhan kreatif, informatif, dan inspiratif. Melalui halaman ini, kami memperkenalkan visi kami sebagai media yang adaptif dan berdampak, misi kami dalam mengembangkan keterampilan multimedia serta menyajikan informasi yang menarik, dan tujuan kami untuk menjadi wadah ekspresi serta penghubung komunikasi di lingkungan SMANTIG. Semoga kehadiran kami dapat memperkuat semangat kolaborasi dan menjadi bagian dari perjalanan sekolah yang penuh makna.
+            </p>
+
+            <div class="btn-wrapper">
+
+              <a href="Tentang Kami.html" class="btn btn-primary">Jelajahi Sekarang</a>
+              <a href="Berita.html" class="btn btn-outline">Berita Smantig</a>
+
+            </div>
+
+          </div>
+
+          <div class="hero-slider" data-slider>
+
+            <div class="slider-inner">
+         
+
+                <li class="slider-item">
+
+                  <figure class="img-holder" style="--width: 575; --height: 550;">
+                    <img src="./assets/images/Logo 3MEDIA terbaru.jpg" width="575" height="550" alt="Foto Logo 3media" class="img-cover">
+                  </figure>
+
+                </li>
+
+              </ul>
+            </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #PROJECT
+      -->
+
+      <section class="section project" aria-labelledby="project-label" id="berita">
+        <div class="container">
+
+          <p class="section-subtitle" id="project-label" data-aos="fade-up" data-aos-delay="150">3MEDIA SMANTIG</p>
+
+          <h2 class="h2 section-title" data-aos="fade-up" data-aos-delay="150">
+            Tentang Kami
+          </h2>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="project-card" data-aos="fade-up" data-aos-delay="150">
+
+                <figure class="card-banner img-holder" style="--width: 560; --height: 350;" id="visi">
+                  <img src="./assets/images/Logo 3MEDIA terbaru.jpg" width="560" height="350" loading="lazy"
+                    alt="3media JPG" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3">
+                    <a href="Tentang Kami.html" class="card-title">Visi</a>
+                  </h3>
+
+                  <p class="card-text">
+                    Mewujudkan siswa yang unggul dalam pemanfaatan teknologi dan media digital, serta menjadikan 3Media sebagai ruang tumbuhnya ide-ide kreatif, inovatif, dan solutif dalam menghadapi tantangan era informasi.
+                  </p>
+
+                 
+
+                </div>
+
+              </div>
+            </li>
+            <li>
+              <div class="project-card" data-aos="fade-up" data-aos-delay="150">
+
+                <figure class="card-banner img-holder" style="--width: 560; --height: 350;">
+                  <img src="./assets/images/Logo 3MEDIA terbaru.jpg" width="560" height="350" loading="lazy"
+                    alt="3media JPG" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3">
+                    <a href="Tentang Kami.html" class="card-title">Misi</a>
+                  </h3>
+
+                  <p class="card-text">
+                    Misi kami adalah menjadikan 3Media sebagai katalisator kreativitas dan inovasi siswa dalam menghadapi era digital. Kami mendorong eksplorasi teknologi melalui proyek-proyek multimedia yang menantang dan bermakna, sekaligus membangun budaya berkarya yang berlandaskan nilai tanggung jawab, etika digital, dan semangat belajar. Dengan memadukan keterampilan teknis dan sentuhan artistik, kami percaya bahwa setiap siswa memiliki potensi untuk menciptakan karya yang berdampak dan relevan bagi masa depan.
+                  </p>
+
+                 
+
+                </div>
+
+              </div>
+            </li>
+            <li>
+              <div class="project-card" data-aos="fade-up" data-aos-delay="150">
+
+                <figure class="card-banner img-holder" style="--width: 560; --height: 350;">
+                  <img src="./assets/images/Logo 3MEDIA terbaru.jpg" width="560" height="350" loading="lazy"
+                    alt="3media JPG" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3">
+                    <a href="Tentang Kami.html" class="card-title">Tujuan</a>
+                  </h3>
+
+                  <p class="card-text">
+                    Tujuan di dirikannya 3 Media yaitu menjadi tempat untuk mengembangkan bakat dan hobi yang dimiliki siswa, dan dengan adanya 3 Media diharapkan dapat mewadahi miant dan potensi siswa serta dapat membantu Hubungan Masyarakat dalam mendokumentasi setiap acara sekolah sean menyajiakan bertia/informasi tentang SMA Negeri 3 Gorontalo
+                  </p>
+
+                 
+
+                </div>
+
+              </div>
+            </li>
+          </section>
+          
+          
+
+
+
+
+
+
+
+      <!-- 
+        - #CTA
+      -->
+
+      <section class="cta" aria-label="call to action">
+        <div class="container">
+
+          <h2 class="h2 section-title" class="project-card" data-aos="fade-up" data-aos-delay="150">
+            Bergabunglah dengan Tim 3Media, tim yang berinovasi dalam dunia komunikasi.
+          </h2>
+
+          <a href="https://wa.link/7xl21h" class="btn btn-primary" class="project-card" data-aos="fade-up" data-aos-delay="150">Hubungi Kami</a>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container grid-list">
+
+      <div class="footer-brand">
+
+        <a href="#" class="logo" class="project-card" data-aos="fade-up" data-aos-delay="150">
+          <img src="./assets/images/Logo Smantig Infromation Center.png" width="74" height="24" alt="3media Beranda">
+        </a>
+
+        <p class="footer-text" class="project-card" data-aos="fade-up" data-aos-delay="150">
+          &copy; 2026 3media Smantig<br> All rights reserved.
+        </p>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="https://www.facebook.com/hubmas.smantig" class="social-link" class="project-card" data-aos="fade-up" data-aos-delay="150">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/smantig.3media/" class="social-link" class="project-card" data-aos="fade-up" data-aos-delay="150">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.youtube.com/@smantig.3media" class="social-link" class="project-card" data-aos="fade-up" data-aos-delay="150">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <ul class="footer-list">
+
+        <li>
+          <p class="h4 footer-list-title" class="project-card" data-aos="fade-up" data-aos-delay="150">Lokasi Kami</p>
+        </li>
+
+        <li>
+          <address class="footer-text" class="project-card" data-aos="fade-up" data-aos-delay="150">
+            SMAN 3 GORONTALO
+          </address>
+        </li>
+
+        <li>
+          <a href="mailto:smantig.3media@gmail.com" class="footer-link" class="project-card" data-aos="fade-up" data-aos-delay="150">smantig.3media@gmail.com</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link" class="project-card" data-aos="fade-up" data-aos-delay="150">+62 812 4348 6342</a>
+        </li>
+
+      </ul>
+
+      <ul class="footer-list">
+
+        <li>
+          <p class="h4 footer-list-title" class="project-card" data-aos="fade-up" data-aos-delay="150">Beranda</p>
+        </li>
+
+        <li>
+          <a href="Tentang Kami.html" class="footer-link" class="project-card" data-aos="fade-up" data-aos-delay="150">Tentang Kami</a>
+        </li>
+
+        <li>
+          <a href="Berita.html" class="footer-link" class="project-card" data-aos="fade-up" data-aos-delay="150">Berita</a>
+        </li>
+
+        <li>
+          <a href="Dokumentasi.html" class="footer-link" class="project-card" data-aos="fade-up" data-aos-delay="150">Dokumentasi</a>
+        </li>
+
+      </ul>
+
+      <div class="footer-list" class="project-card" data-aos="fade-up" data-aos-delay="150">
+
+        <p class="h4 footer-list-title">Sambutan Ketua</p>
+
+        <p class="footer-text-1">
+          Website ini kami hadirkan sebagai wadah dokumentasi, informasi, dan inspirasi bagi seluruh warga SMANTIG. Semoga kehadirannya dapat memperkuat semangat kolaborasi, memperluas jangkauan publikasi, dan menjadi cerminan kreativitas serta dedikasi tim 3Media.
+        </p>
+
+      </div>
+
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon
+  -->
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+      duration: 1000, // durasi animasi
+      once: true      // animasi hanya sekali saat scroll
+    });
+    </script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

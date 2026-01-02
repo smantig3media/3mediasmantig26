@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- swiper css linked hare  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- akar icon cdn linked hare  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/akar-icons-fonts/1.1.22/css/akar-icons.css"
+      integrity="sha512-xM54SoWdWHNrNSYzPt1Wfsg5dyaIk0e7/biNh0jIR+pdaoWLfEAs50ig7ysS0ywbN79lrAow53uHtK3joebijA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>3media Smantig</title>
+  <meta name="title" content="3media">`
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <style>
+    .hero-text {
+      text-align: justify;
+    }
+    .btn-baca {
+  display: inline-block;
+  padding: 12px 26px;
+  background-color: #2C67EC;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-baca:hover {
+  background-color: #334ea3;
+  transform: translateY(-2px);
+}
+
+.btn-baca:active {
+  transform: translateY(0);
+}
+/* BATASI UKURAN GAMBAR BERITA */
+.project-card .card-banner {
+  width: 100%;
+  height: 270px; 
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* PAKSA GAMBAR MENGIKUTI BINGKAI */
+.project-card .card-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+  </style>
+  
+
+
+</head>
+
+<body>
+  <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- 
+    - #HEADER
+  -->
+  <header class="header" data-header>
+    <div class="container" >
+
+      <a href="#" class="logo">
+        <img src="./assets/images/Logo Smantig Infromation Center.png" width="74" height="24" alt="3media Beranda" class="logo-light">
+
+        <img src="./assets/images/Logo Smantig Infromation Center.png" width="74" height="24" alt="3media Beranda" class="logo-dark">
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="./assets/images/Logo Smantig Infromation Center.png" class="logo">
+            <img src="./assets/images/Logo Smantig Infromation Center.png" width="74" height="24" alt="3media Smantig">
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="index.html" class="navbar-link">BERANDA</a>
+          </li>
+
+          <li>
+            <a href="Tentang Kami.html" class="navbar-link">TENTANG KAMI</a>
+          </li>
+
+          <li>
+            <a href="Berita.html" class="navbar-link">BERITA SMANTIG</a>
+          </li>
+
+          <li>
+            <a href="Dokumentasi.html" class="navbar-link">DOKUMENTASI</a>
+          </li>
+
+          <li>
+            <a href="Tampilan Admin.html" class="navbar-link">ADMIN 3MEDIA</a>
+          </li>
+
+        </ul>
+
+        <div class="wrapper">
+          <a href="mailto:smantig.3media@gmail.com" class="contact-link">3mediapicture@gmail.com</a>
+
+          <a href="tel:001234567890" class="contact-link">+62 812 434 863 42</a>
+        </div>
+
+        
+
+      </nav>
+
+      <a href="https://www.youtube.com/@smantig.3media" class="btn btn-primary">SUBSCRIBE</a>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero has-bg-image" aria-label="Beranda"
+        style="background-image: url(./assets/images/Latar-belakang-3media-3.jpg)">
+        <div class="container" >
+
+          <div class="hero-content">
+
+            <h1 class="h1 hero-title">Selamat Datang</h1>
+
+            <p class="hero-text">
+              Selamat datang di halaman Berita 3Media SMANTIG—ruang informasi terkini seputar kegiatan, prestasi, dan dinamika SMA Negeri 3 Gorontalo. Melalui sajian berita yang akurat dan inspiratif, kami berkomitmen menghadirkan dokumentasi yang tidak hanya mencatat peristiwa, tetapi juga membangun semangat dan kebanggaan bersama.
+            </p>
+
+            <div class="btn-wrapper">
+
+              <a href="Tentang Kami.html" class="btn btn-primary">Jelajahi Sekarang</a>
+              <a href="Berita.html" class="btn btn-outline">Berita Smantig</a>
+
+            </div>
+
+          </div>
+
+          <div class="hero-slider" data-slider>
+
+            <div class="slider-inner">
+         
+
+                <li class="slider-item">
+
+                  <figure class="img-holder" style="--width: 575; --height: 550;">
+                    <img src="./assets/images/Logo 3MEDIA terbaru.jpg" width="575" height="550" alt="Foto Logo 3media" class="img-cover">
+                  </figure>
+
+                </li>
+
+              </ul>
+            </div>
+
+        </div>
+      </section>
+
+      <!-- 
+        - #PROJECT
+      -->
+      
+
+      <section class="section project" aria-labelledby="project-label" id="berita">
+        <div class="container">
+
+          <p class="section-subtitle" id="project-label"class="project-card" data-aos="fade-up" data-aos-delay="150">3MEDIA SMANTIG</p>
+
+          <h2 class="h2 section-title" class="project-card" data-aos="fade-up" data-aos-delay="150">
+            Berita Smantig
+          </h2>
+
+          <ul class="grid-list" id="listBerita"></ul>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBYbTnXb4p3oGsnauNCp3m2BHdTeSY80-A",
+  authDomain: "smantig3media-d5f93.firebaseapp.com",
+  projectId: "smantig3media-d5f93",
+  storageBucket: "smantig3media-d5f93.appspot.com",
+  messagingSenderId: "119404711908",
+  appId: "1:119404711908:web:5fbe26e0cfd8b18dba81f1"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const list = document.getElementById("listBerita");
+
+async function loadBerita(){
+  list.innerHTML="";
+  const q = query(collection(db,"berita"), orderBy("createdAt","desc"));
+  const snap = await getDocs(q);
+
+  snap.forEach(doc=>{
+  const b = doc.data();
+  const id = doc.id;
+
+  list.innerHTML += `
+    <li>
+      <div class="project-card">
+
+        <figure class="card-banner img-holder">
+          <img src="${b.gambar}" class="img-cover">
+        </figure>
+
+        <div class="card-content">
+          <h3 class="h3">
+            ${b.tanggal} - ${b.judul}
+          </h3>
+
+          <p class="card-text"></p>
+         
+         <a href="Detail Berita.html?id=${id}" class="btn-baca">
+  Baca Sekarang
+</a>
+        </div>
+
+      </div>
+    </li>
+  `;
+});
+
+}
+
+
+loadBerita();
+</script>
+
+
+
+
+      </section>
+
+
+
+
+
+
+      <!-- 
+        - #CTA
+      -->
+
+      <section class="cta" aria-label="call to action">
+        <div class="container">
+
+          <h2 class="h2 section-title" class="project-card" data-aos="fade-up" data-aos-delay="150">
+            Bergabunglah dengan Tim 3Media, tim yang berinovasi dalam dunia komunikasi.
+          </h2>
+
+          <a href="https://wa.link/7xl21h" class="btn btn-primary" class="project-card" data-aos="fade-up" data-aos-delay="150">Hubungi Kami</a>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container grid-list">
+
+      <div class="footer-brand">
+
+        <a href="#" class="logo" class="project-card" data-aos="fade-up" data-aos-delay="150">
+          <img src="./assets/images/Logo Smantig Infromation Center.png" width="74" height="24" alt="3media Beranda">
+        </a>
+
+        <p class="footer-text" class="project-card" data-aos="fade-up" data-aos-delay="150">
+          &copy; 2026 3media Smantig<br> All rights reserved.
+        </p>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="https://www.facebook.com/hubmas.smantig" class="social-link" class="project-card" data-aos="fade-up" data-aos-delay="150">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/smantig.3media/" class="social-link" class="project-card" data-aos="fade-up" data-aos-delay="150">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.youtube.com/@smantig.3media" class="social-link" class="project-card" data-aos="fade-up" data-aos-delay="150">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <ul class="footer-list">
+
+        <li>
+          <p class="h4 footer-list-title" class="project-card" data-aos="fade-up" data-aos-delay="150">Lokasi Kami</p>
+        </li>
+
+        <li>
+          <address class="footer-text" class="project-card" data-aos="fade-up" data-aos-delay="150">
+            SMAN 3 GORONTALO
+          </address>
+        </li>
+
+        <li>
+          <a href="mailto:smantig.3media@gmail.com" class="footer-link" class="project-card" data-aos="fade-up" data-aos-delay="150">smantig.3media@gmail.com</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link" class="project-card" data-aos="fade-up" data-aos-delay="150">+62 812 4348 6342</a>
+        </li>
+
+      </ul>
+
+      <ul class="footer-list">
+
+        <li>
+          <p class="h4 footer-list-title" class="project-card" data-aos="fade-up" data-aos-delay="150">Beranda</p>
+        </li>
+
+        <li>
+          <a href="Tentang Kami.html" class="footer-link" class="project-card" data-aos="fade-up" data-aos-delay="150">Tentang Kami</a>
+        </li>
+
+        <li>
+          <a href="Berita.html" class="footer-link" class="project-card" data-aos="fade-up" data-aos-delay="150">Berita</a>
+        </li>
+
+        <li>
+          <a href="Dokumentasi.html" class="footer-link" class="project-card" data-aos="fade-up" data-aos-delay="150">Dokumentasi</a>
+        </li>
+
+      </ul>
+
+      <div class="footer-list" class="project-card" data-aos="fade-up" data-aos-delay="150">
+
+        <p class="h4 footer-list-title">Sambutan Ketua</p>
+
+        <p class="footer-text-1">
+          Website ini kami hadirkan sebagai wadah dokumentasi, informasi, dan inspirasi bagi seluruh warga SMANTIG. Semoga kehadirannya dapat memperkuat semangat kolaborasi, memperluas jangkauan publikasi, dan menjadi cerminan kreativitas serta dedikasi tim 3Media.
+        </p>
+
+      </div>
+
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script>
+    /**
+ * add event listener on multiple elements
+ */
+
+const addEventOnElements = function (elements, eventType, callback) {
+  for (let i = 0, len = elements.length; i < len; i++) {
+    elements[i].addEventListener(eventType, callback);
+  }
+}
+
+
+
+/**
+ * NAVBAR TOGGLE FOR MOBILE
+ */
+
+const navbar = document.querySelector("[data-navbar]");
+const navTogglers = document.querySelectorAll("[data-nav-toggler]");
+const overlay = document.querySelector("[data-overlay]");
+
+const toggleNavbar = function () {
+  navbar.classList.toggle("active");
+  overlay.classList.toggle("active");
+  document.body.classList.toggle("nav-active");
+}
+
+addEventOnElements(navTogglers, "click", toggleNavbar);
+
+
+
+/**
+ * HEADER
+ * active header when window scroll down to 100px
+ */
+
+const header = document.querySelector("[data-header]");
+
+window.addEventListener("scroll", function () {
+  if (window.scrollY > 100) {
+    header.classList.add("active");
+  } else {
+    header.classList.remove("active");
+  }
+});
+  </script>
+
+  <!-- 
+    - ionicon
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+      duration: 1000, // durasi animasi
+      once: true      // animasi hanya sekali saat scroll
+    });
+    </script>
+</body>
+
+</html>

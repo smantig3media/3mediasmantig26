@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Admin Berita</title>
+
+<style>
+:root {
+  --primary:#2563eb;
+  --danger:#ef4444;
+  --success:#22c55e;
+  --bg:#f1f5f9;
+  --card:#ffffff;
+  --text:#1e293b;
+}
+
+* { box-sizing:border-box; font-family: 'Segoe UI',sans-serif }
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* ===== LOGIN ===== */
+.login-box {
+  max-width:360px;
+  margin:120px auto;
+  background:var(--card);
+  padding:30px;
+  border-radius:14px;
+  box-shadow:0 20px 40px rgba(0,0,0,.1);
+}
+
+.login-box h2 { text-align:center }
+.login-box input {
+  width:100%;
+  padding:14px;
+  margin-bottom:14px;
+  border-radius:10px;
+  border:1px solid #cbd5f5;
+}
+.login-box button {
+  width:100%;
+  padding:14px;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background:var(--primary);
+  padding:14px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:#fff;
+}
+
+.navbar a {
+  margin-right:18px;
+  cursor:pointer;
+  font-weight:500;
+}
+
+/* ===== DASHBOARD ===== */
+.dashboard {
+  max-width:1000px;
+  margin:30px auto;
+  padding:0 20px;
+}
+
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.card {
+  background:var(--card);
+  padding:24px;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.card h3 { color:#64748b; margin:0 }
+.card b { font-size:32px }
+
+/* ===== FORM ===== */
+.admin-box {
+  max-width:700px;
+  margin:30px auto;
+  background:var(--card);
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  display:none;
+}
+
+input, textarea {
+  width:100%;
+  padding:14px;
+  margin-bottom:14px;
+  border-radius:10px;
+  border:1px solid #cbd5f5;
+}
+
+img {
+  max-width:100%;
+  border-radius:12px;
+  display:none;
+  margin-bottom:14px;
+}
+
+button.primary {
+  background:var(--primary);
+  color:#fff;
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* ===== LIST ===== */
+.item {
+  border:1px solid #e5e7eb;
+  padding:14px;
+  margin-top:12px;
+  border-radius:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.item small { color:#64748b }
+
+.action button {
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  margin-left:5px;
+}
+
+.edit { background:#22c55e; color:white }
+.delete { background:#ef4444; color:white }
+
+.notif {
+  display:none;
+  background:var(--success);
+  color:white;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:14px;
+  text-align:center;
+}
+
+footer {
+  text-align:center;
+  margin:30px;
+  color:#64748b;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="loginPage" class="login-box">
+  <h2>Login Admin</h2>
+  <input id="user" placeholder="Username">
+  <input id="pass" type="password" placeholder="Password">
+  <button onclick="login()">Masuk</button>
+</div>
+
+<!-- ADMIN -->
+<div id="adminPage" style="display:none">
+
+  <div class="navbar">
+    <div>👤 Admin <b>3media</b></div>
+    <div>
+      <a onclick="showDashboard()">Beranda</a>
+      <a onclick="showForm()">Upload Berita</a>
+      <a onclick="logout()">Keluar</a>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="dashboard">
+    <h2>Beranda Admin</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Total Berita</h3>
+        <b id="totalBerita">0</b>
+      </div>
+      <div class="card">
+        <h3>Status</h3>
+        <b>Aktif</b>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div id="formAdmin" class="admin-box">
+    <h2>Upload / Edit Berita</h2>
+
+    <div id="notif" class="notif">Berita berhasil disimpan</div>
+
+    <input id="judul" placeholder="Judul Berita">
+    <input id="tanggal" placeholder="Tanggal">
+    <input type="file" id="gambarFile">
+    <img id="preview">
+    <textarea id="deskripsi" rows="5" placeholder="Isi Berita"></textarea>
+
+    <button class="primary" onclick="simpanBerita()">Simpan Berita</button>
+
+    <hr>
+    <div id="daftarBerita"></div>
+  </div>
+
+  <footer>© 3media 2026</footer>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import {
+  getFirestore, collection, addDoc, getDocs,
+  updateDoc, deleteDoc, doc, serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBYbTnXb4p3oGsnauNCp3m2BHdTeSY80-A",
+  authDomain: "smantig3media-d5f93.firebaseapp.com",
+  projectId: "smantig3media-d5f93",
+  storageBucket: "smantig3media-d5f93.appspot.com",
+  messagingSenderId: "119404711908",
+  appId: "1:119404711908:web:5fbe26e0cfd8b18dba81f1"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const col = collection(db,"berita");
+
+const USER="3media", PASS="smantig.3media";
+let editId=null;
+let gambarBase64="";
+
+/* LOGIN */
+window.login = ()=>{
+  if(user.value===USER && pass.value===PASS){
+    loginPage.style.display="none";
+    adminPage.style.display="block";
+    showDashboard();
+    tampilkanBerita();
+  } else alert("Login salah!");
+};
+
+window.logout = ()=>location.reload();
+
+/* NAV */
+window.showDashboard = ()=>{
+  dashboard.style.display="block";
+  formAdmin.style.display="none";
+};
+
+window.showForm = ()=>{
+  dashboard.style.display="none";
+  formAdmin.style.display="block";
+  tampilkanBerita();
+};
+
+/* GAMBAR → BASE64 */
+gambarFile.onchange = e=>{
+  const file = e.target.files[0];
+  const reader = new FileReader();
+  reader.onload = ()=>{
+    gambarBase64 = reader.result;
+    preview.src = gambarBase64;
+    preview.style.display="block";
+  };
+  reader.readAsDataURL(file);
+};
+
+/* SIMPAN */
+window.simpanBerita = async ()=>{
+  if(!judul.value || !tanggal.value || !deskripsi.value){
+    alert("Lengkapi data");
+    return;
+  }
+
+  const data = {
+    judul: judul.value,
+    tanggal: tanggal.value,
+    gambar: gambarBase64,
+    deskripsi: deskripsi.value,
+    createdAt: serverTimestamp()
+  };
+
+  if(editId){
+    await updateDoc(doc(db,"berita",editId), data);
+    editId=null;
+  } else {
+    await addDoc(col, data);
+  }
+
+  notif.style.display="block";
+  setTimeout(()=>notif.style.display="none",2000);
+
+  judul.value=tanggal.value=deskripsi.value="";
+  preview.style.display="none";
+  gambarBase64="";
+  tampilkanBerita();
+};
+
+/* LIST */
+async function tampilkanBerita(){
+  daftarBerita.innerHTML="";
+  const snap = await getDocs(col);
+  totalBerita.innerText = snap.size;
+
+  snap.forEach(d=>{
+    const b=d.data();
+    daftarBerita.innerHTML+=`
+      <div class="item">
+        <div><b>${b.judul}</b><br><small>${b.tanggal}</small></div>
+        <div class="action">
+          <button class="edit" onclick="editBerita('${d.id}')">Edit</button>
+          <button class="delete" onclick="hapusBerita('${d.id}')">Hapus</button>
+        </div>
+      </div>`;
+  });
+}
+
+window.editBerita = async id=>{
+  const snap = await getDocs(col);
+  snap.forEach(d=>{
+    if(d.id===id){
+      const b=d.data();
+      judul.value=b.judul;
+      tanggal.value=b.tanggal;
+      deskripsi.value=b.deskripsi;
+      gambarBase64=b.gambar;
+      preview.src=b.gambar;
+      preview.style.display="block";
+      editId=id;
+      showForm();
+    }
+  });
+};
+
+window.hapusBerita = async id=>{
+  if(confirm("Hapus berita?")){
+    await deleteDoc(doc(db,"berita",id));
+    tampilkanBerita();
+  }
+};
+</script>
+
+</body>
+</html>
